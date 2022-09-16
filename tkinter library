@@ -1,0 +1,54 @@
+from tkinter import *
+from time import *
+
+app = Tk()
+app.title("digital clock")
+app.geometry("48x16")
+app.resizable(1,1)
+#######################
+l = Label(app,
+      font =("Arial",18,"bold"),
+      bg = "#ff9900",
+                     fg = "black",
+                     bd = "100"
+                 )
+                 
+l.grid(row = 1, column = 1)
+
+def tim() :       
+       t=strftime("%I:%M:%S %p")
+       l.config(text=t)
+       app.after(1000,tim)
+########################## 
+m = Label(app,
+      font =("Arial",16,"bold"),
+      bg = "white",
+                     fg = "black",
+                     bd = "100"
+                 )
+                 
+m.grid(row = 2, column = 1)
+
+def date() :       
+       t=strftime(" %d/%b/%Y")
+       m.config(text=t)
+       app.after(1000,date)      
+##########################
+n = Label(app,
+      font =("Arial",36,"bold"),
+      bg = "green",
+                     fg = "black",
+                     bd = "100"
+                 )
+                 
+n.grid(row = 3, column = 1)
+
+def day() :       
+       t=strftime("%A")
+       n.config(text=t)
+       app.after(1000,day)
+##########################
+day()
+tim()
+date()
+app.mainloop()
